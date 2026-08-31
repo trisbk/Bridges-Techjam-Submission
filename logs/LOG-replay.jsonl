@@ -1,0 +1,74 @@
+{"name": "R9 FwFM listwise K=4", "valid_mean": 0.60296, "test_mean": 0.59782, "replay_verdict": "NOISE", "legacy_label": "WIN"}
+{"name": "R4 L1 InfoNCE K=4 (single model)", "valid_mean": 0.6035, "test_mean": 0.5978, "replay_verdict": "PROMOTE", "legacy_label": "WIN"}
+{"name": "R8 L1 + 5-seed ensemble", "valid_mean": 0.6036, "test_mean": 0.5982, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R10 MLP head H=64 lr=0.001", "valid_mean": 0.6037, "test_mean": 0.59822, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R10 MLP head H=64 lr=0.0003", "valid_mean": 0.60384, "test_mean": 0.59843, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R11a MLP 5-seed ensemble", "valid_mean": 0.60379, "test_mean": 0.59827, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R11b mixed 5 MLP + 5 FM ensemble", "valid_mean": 0.60407, "test_mean": 0.59858, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R12 MLP k=32 H=64", "valid_mean": 0.60382, "test_mean": 0.5983, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R12 MLP k=16 H=128", "valid_mean": 0.60375, "test_mean": 0.59779, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R13a MLP pointwise-anneal then listwise", "valid_mean": 0.6046, "test_mean": 0.59815, "replay_verdict": "PROMOTE", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R13b MLP hard-negative mining", "valid_mean": 0.59218, "test_mean": 0.58487, "replay_verdict": "WORSE_THAN_BASELINE", "legacy_label": "WORSE"}
+{"name": "R14a two-layer MLP H=64-32", "valid_mean": 0.6038, "test_mean": 0.59823, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R14b FFM k=8", "valid_mean": 0.60308, "test_mean": 0.59761, "replay_verdict": "NOISE", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R15a mlp+fm (banked reference)", "valid_mean": 0.60407, "test_mean": 0.59858, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R15b mlp+fm+ffm", "valid_mean": 0.60372, "test_mean": 0.59853, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R15c mlp+fm+mlp2", "valid_mean": 0.60406, "test_mean": 0.5988, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R15d all four classes", "valid_mean": 0.60386, "test_mean": 0.59874, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R16a MLP + user_tab cross field", "valid_mean": 0.60319, "test_mean": 0.59733, "replay_verdict": "NOISE", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R16b InfoNCE temperature tau=0.5", "valid_mean": 0.60383, "test_mean": 0.59816, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R16c InfoNCE temperature tau=2.0", "valid_mean": 0.60368, "test_mean": 0.59784, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R18 MLP + causal sequence features", "valid_mean": 0.6067, "test_mean": 0.60163, "replay_verdict": "PROMOTE", "legacy_label": "WIN"}
+{"name": "R17a weighted committee alpha=0.60", "valid_mean": 0.60415, "test_mean": 0.59883, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R17b diverse-config committee (6 MLP cfgs + 5 FM)", "valid_mean": 0.60404, "test_mean": 0.5986, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R17c MLP lr-decay long-train", "valid_mean": 0.60388, "test_mean": 0.59811, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R19 multi-task aux heads (click+like) on R18 recipe", "valid_mean": 0.60624, "test_mean": 0.60145, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R20a mixed committee on seq features", "valid_mean": 0.60924, "test_mean": 0.60432, "replay_verdict": "PROMOTE", "legacy_label": "WIN"}
+{"name": "R20b richer sequences (+hist30, tag_hist, gap)", "valid_mean": 0.60842, "test_mean": 0.60397, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R22 interest-vector MLP (mean-pooled watched history)", "valid_mean": 0.60796, "test_mean": 0.6036, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R21 committee on richer sequences", "valid_mean": 0.61641, "test_mean": 0.61035, "replay_verdict": "PROMOTE", "legacy_label": "WIN"}
+{"name": "R24a FM-rich k=32", "valid_mean": 0.61679, "test_mean": 0.60988, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R24b FM-rich-only 5-seed committee", "valid_mean": 0.61906, "test_mean": 0.61164, "replay_verdict": "PROMOTE", "legacy_label": "WIN"}
+{"name": "R24c FM deeper history (+hist100, auth_hist 9+ cap)", "valid_mean": 0.6151, "test_mean": 0.60794, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R23a interest+mlp+fm committee", "valid_mean": 0.60942, "test_mean": 0.60454, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R23b interest+mlp committee", "valid_mean": 0.60834, "test_mean": 0.60338, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R25a FM rich + auth_hist 9+ cap (isolated)", "valid_mean": 0.61714, "test_mean": 0.61049, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R25b cross-view blend alpha=1.00", "valid_mean": 0.61906, "test_mean": 0.61164, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R26a attention-pooled interest on rich fields", "valid_mean": 0.60598, "test_mean": 0.60198, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R26b mean-pooled interest on rich fields (control)", "valid_mean": 0.60602, "test_mean": 0.60203, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R27 hybrid FM (rich fields + candidate-history dot term)", "valid_mean": 0.61714, "test_mean": 0.60969, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R28 FM-rich retune lr5e-4 K4 pat6", "valid_mean": 0.61741, "test_mean": 0.61127, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R28 FM-rich retune lr2e-3 K4 pat4", "valid_mean": 0.61506, "test_mean": 0.60909, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R28 FM-rich retune lr1e-3 K8 pat4", "valid_mean": 0.61698, "test_mean": 0.61019, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R28 FM-rich retune lr1e-3 K4 pat8", "valid_mean": 0.61715, "test_mean": 0.60978, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R29a lr5e-4 FM-rich committee", "valid_mean": 0.61878, "test_mean": 0.61233, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R29b lr blend alpha=0.15", "valid_mean": 0.61907, "test_mean": 0.61174, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "WIN"}
+{"name": "R30-ctrl FM-rich (control)", "valid_mean": 0.61715, "test_mean": 0.60978, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R30a FM-rich + hour", "valid_mean": 0.61711, "test_mean": 0.6106, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R30b FM-rich + content", "valid_mean": 0.61712, "test_mean": 0.61008, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R30c FM-rich + hour + content", "valid_mean": 0.61746, "test_mean": 0.61034, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R31-ctrl FM-rich, no aux head", "valid_mean": 0.61715, "test_mean": 0.60978, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R31a aux play-ratio (bucket) lam=0.3", "valid_mean": 0.61587, "test_mean": 0.6095, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R31b aux play-ratio (bucket) lam=1.0", "valid_mean": 0.61608, "test_mean": 0.60948, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R31c aux play-ratio (global) lam=0.3", "valid_mean": 0.61584, "test_mean": 0.60949, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R32-ctrl FM-rich wide16/narrow16", "valid_mean": 0.61715, "test_mean": 0.60978, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R32a FM-rich wide24/narrow8", "valid_mean": 0.61098, "test_mean": 0.60461, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R32b FM-rich wide16/narrow8", "valid_mean": 0.61186, "test_mean": 0.60521, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R32c FM-rich wide24/narrow16", "valid_mean": 0.61568, "test_mean": 0.60919, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R32d FM-rich wide24/narrow24", "valid_mean": 0.61656, "test_mean": 0.60983, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R33-ctrl RICH (control)", "valid_mean": 0.61715, "test_mean": 0.60978, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R33a RICH + tab recency + tab_n", "valid_mean": 0.61806, "test_mean": 0.61133, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R33b RICH + tab_n only", "valid_mean": 0.61955, "test_mean": 0.6124, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R33-placebo time-shuffled tab_n", "valid_mean": 0.61612, "test_mean": 0.60972, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R33c committee completion RICH + tab_n (5 seeds)", "valid_mean": 0.61916, "test_mean": 0.61225, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R33c RICH + tab_n 5-seed committee (BANKED)", "valid_mean": 0.62059, "test_mean": 0.61429, "replay_verdict": "PROMOTE", "legacy_label": "WIN"}
+{"name": "R34 RICH + tab_n + tab recency", "valid_mean": 0.61704, "test_mean": 0.61101, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R35 RICH + tab_n + dur_n", "valid_mean": 0.61889, "test_mean": 0.61107, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R36 RICH + tab_n_fine", "valid_mean": 0.61989, "test_mean": 0.61159, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R37 RICH + surface-scrambled tab_n (mechanism control)", "valid_mean": 0.61849, "test_mean": 0.61127, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R38-ctrl RICH + tab_n (champion control)", "valid_mean": 0.61955, "test_mean": 0.6124, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R38a + sess_pos", "valid_mean": 0.6185, "test_mean": 0.61163, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R38b + sess_pos + sess_hit", "valid_mean": 0.61706, "test_mean": 0.61114, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R39-ctrl RICH + tab_n (champion control)", "valid_mean": 0.61955, "test_mean": 0.6124, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R39a + tag_n", "valid_mean": 0.61822, "test_mean": 0.61083, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
+{"name": "R39b + tag_n + auth_n", "valid_mean": 0.61846, "test_mean": 0.61138, "replay_verdict": "SIGNIFICANT_NOT_PROMOTED", "legacy_label": "SIGNIFICANT_BUT_NOT_BEST"}
