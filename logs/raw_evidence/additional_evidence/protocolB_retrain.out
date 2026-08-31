@@ -1,0 +1,12 @@
+building frozen-batch features (train continuous, valid frozen at Apr 21, test frozen at Apr 28) ...
+seed 0: single test 0.5967
+seed 1: single test 0.5967
+seed 2: single test 0.5981
+seed 3: single test 0.5973
+seed 4: single test 0.5967
+
+=== FROZEN-BATCH RETRAINED COMMITTEE (no test-window feedback) ===
+valid : GAUC 0.6703 | nDCG@5 0.5373 | primary 0.6038
+test  : GAUC 0.6646 | nDCG@5 0.5311 | primary 0.5979
+vs official baseline: +0.0033
+(compare: shipped weights served frozen without retraining: 0.59429; daily-batch retrained: 0.6106; continuous: 0.61164)

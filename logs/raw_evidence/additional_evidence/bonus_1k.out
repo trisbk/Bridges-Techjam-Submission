@@ -1,0 +1,70 @@
+loaded 11,713,045 rows | 1000 users | 4,369,953 videos | 1,407,453 authors | 58 tags | 25s
+featurized in 22s
+featurized arrays cached
+splits: train 5,055,984 | valid 2,524,980 | test 4,132,081 | long_view rate train 0.263
+
+=== BASELINE ARM (kit recipe: pointwise FM, base fields) ===
+dim 1,104,050
+    ep  1 valid 0.6277 (8s)
+    ep  2 valid 0.6374 (8s)
+    ep  3 valid 0.6363 (8s)
+    ep  4 valid 0.6277 (8s)
+    ep  5 valid 0.6161 (8s)
+    ep  6 valid 0.6086 (8s)
+  baseline seed 0: valid 0.6374 test 0.6338
+    ep  1 valid 0.6290 (8s)
+    ep  2 valid 0.6406 (8s)
+    ep  3 valid 0.6366 (8s)
+    ep  4 valid 0.6303 (8s)
+    ep  5 valid 0.6198 (8s)
+    ep  6 valid 0.6119 (8s)
+  baseline seed 1: valid 0.6406 test 0.6300
+    ep  1 valid 0.6262 (8s)
+    ep  2 valid 0.6316 (8s)
+    ep  3 valid 0.6336 (8s)
+    ep  4 valid 0.6264 (8s)
+    ep  5 valid 0.6191 (8s)
+    ep  6 valid 0.6089 (8s)
+    ep  7 valid 0.6033 (8s)
+  baseline seed 2: valid 0.6336 test 0.6243
+BASELINE test mean over 3 seeds: 0.6293 ± 0.0039
+
+=== OUR RECIPE (listwise, causal features + tab_n, 5-seed committee) ===
+dim 1,104,110
+    ep  1 valid 0.6818 (20s)
+    ep  2 valid 0.6766 (20s)
+    ep  3 valid 0.6627 (19s)
+    ep  4 valid 0.6520 (19s)
+    ep  5 valid 0.6420 (20s)
+  ours seed 0: valid 0.6818 test 0.6874
+    ep  1 valid 0.6802 (20s)
+    ep  2 valid 0.6782 (20s)
+    ep  3 valid 0.6668 (19s)
+    ep  4 valid 0.6539 (19s)
+    ep  5 valid 0.6413 (20s)
+  ours seed 1: valid 0.6802 test 0.6907
+    ep  1 valid 0.6832 (20s)
+    ep  2 valid 0.6821 (19s)
+    ep  3 valid 0.6649 (19s)
+    ep  4 valid 0.6502 (19s)
+    ep  5 valid 0.6387 (19s)
+  ours seed 2: valid 0.6832 test 0.6892
+    ep  1 valid 0.6821 (20s)
+    ep  2 valid 0.6780 (21s)
+    ep  3 valid 0.6625 (20s)
+    ep  4 valid 0.6496 (20s)
+    ep  5 valid 0.6388 (21s)
+  ours seed 3: valid 0.6821 test 0.6903
+    ep  1 valid 0.6839 (20s)
+    ep  2 valid 0.6778 (21s)
+    ep  3 valid 0.6710 (20s)
+    ep  4 valid 0.6568 (21s)
+    ep  5 valid 0.6465 (21s)
+  ours seed 4: valid 0.6839 test 0.6920
+
+=== KUAIRAND-1K RESULT (untuned transfer) ===
+baseline (3-seed mean)  : test 0.6293
+ours singles            : [0.6874, 0.6907, 0.6892, 0.6903, 0.692]
+ours committee  valid   : GAUC 0.6990 nDCG@5 0.6745 primary 0.6868
+ours committee  test    : GAUC 0.7017 nDCG@5 0.6844 primary 0.6931
+delta vs our 1K baseline: +0.0637
