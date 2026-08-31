@@ -1,0 +1,20 @@
+{
+  "frozen_at": "2026-08-29T21:45:00+08:00",
+  "scores": {
+    "valid": {"GAUC": 0.6926, "nDCG@5": 0.5455, "primary": 0.6191},
+    "test":  {"GAUC": 0.6825, "nDCG@5": 0.5408, "primary": 0.6116},
+    "published_baseline_primary": 0.5946,
+    "delta_vs_published": 0.0170
+  },
+  "model": {"type": "FactorizationMachine", "k": 16, "committee_seeds": [0, 1, 2, 3, 4],
+            "prediction_combine": "per-model z-score, then mean"},
+  "objective": {"type": "listwise_infonce", "negatives_per_positive": 4,
+                "negative_sampling": "uniform within-user, train rows only"},
+  "optimizer": {"type": "adam", "lr": 0.001, "l2": 1e-6, "batch_size": 8192,
+                "early_stopping": {"metric": "valid primary", "patience": 4, "max_epochs": 40}},
+  "fields": ["user_id", "video_id", "author_id", "tab", "dur_bucket",
+             "prev1", "hist10", "hist_n", "auth_hist", "hist30", "tag_hist", "gap"],
+  "feature_hygiene": "sequence features from strictly-prior events only; own label excluded; vocabs and bucket edges from train split only",
+  "split": {"train": "20220408-20220421", "valid": "20220422-20220428", "test": "20220429-20220508"},
+  "reproduce": "python3 final_model.py"
+}
