@@ -13,8 +13,6 @@ Regimes:
 Because the same continuously-trained weights are used in every regime, the
 frozen setting introduces train/serve skew and should be interpreted as a
 lower bound rather than a realistic frozen-serving estimate.
-
-Usage: python3 staleness_ablation.py
 """
 import csv, os, collections
 import numpy as np
