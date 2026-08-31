@@ -1,0 +1,6 @@
+57d831f agent: iteration 5 — exponential recency weighting REFUTED; banked best unchanged at 0.59744
+60d0b32 agent: iteration 4 — user-static interaction mask REFUTED; banked best unchanged at 0.59744
+b769fe9 agent: iteration 3 — richer feature fields WIN, banked 0.59497 → 0.59744
+bff72b4 agent: ignore __pycache__ (committed by accident in the previous commit)
+cff2ef8 agent: iteration 1 — baseline reproduced; within-user pairwise loss refuted
+70869a5 Clean-room environment: kit files, harness, driver, empty logs
