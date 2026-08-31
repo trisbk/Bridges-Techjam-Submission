@@ -1,0 +1,24 @@
+building features + scoring frozen committee on validation ...
+  [warn] hist=0: 37% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] hist=1-3: 39% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] hist=100+: 89% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] hist=11-30: 73% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] hist=31-100: 88% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] hist=4-10: 51% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] tab=1: 54% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+  [warn] tab=2: 29% of the slice's rows belong to users who are entirely inside it, so the null cannot reshuffle them and this EVx is biased toward zero
+
+overall validation primary 0.62059; worst slices (ordered by EVx, the headroom the MODEL is responsible for):
+  slice            primary   users   EV(old)      EVo      EVx  all-neg users
+  tab=1            0.59710  20,119   0.02111  0.21129  0.00399           31%
+  dur=4            0.54043   8,023   0.02874  0.04391  0.00221           56%
+  tab=4            0.56396   4,209   0.01065  0.02730  0.00201           41%
+  dur=6            0.53034   7,670   0.03093  0.04226  0.00156           57%
+  dur=7            0.52610   8,749   0.03694  0.04791  0.00145           59%
+  dur=3            0.53835   8,125   0.02986  0.04753  0.00086           55%
+  dur=8            0.51767   9,093   0.04182  0.04839  0.00082           61%
+  hist=11-30       0.61577   7,107   0.00153  0.05027  0.00059           38%
+
+(top slice tab=1 is already resolved; taking the next unresolved one)
+
+written to belief state: residual_dur_4 (mechanism capacity, EV 0.00221)

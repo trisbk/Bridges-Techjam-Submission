@@ -1,0 +1,55 @@
+train tab=1 834,876 rows | valid tab=1 92,672 rows, 20,119 users
+
+[1] long_view rate by sess_pos (tab=1, train):
+    0      0.418  n=406,422
+    1-2    0.387  n=244,313
+    3-5    0.344  n=106,974
+    6-10   0.300  n=50,136
+    11-20  0.240  n=21,066
+    21-50  0.170  n=5,537
+    50+    0.143  n=428
+
+[2] rate by sess_pos WITHIN each shipped recency feature:
+    gap                 0          1-2          3-5         6-10        11-20        21-50          50+
+    1d+       0.431(130k)      .            .            .            .            .            .      
+    <1d       0.407(189k)      .            .            .            .            .            .      
+    <1h        0.404(67k)  0.389(200k)   0.352(85k)   0.311(38k)   0.255(15k)    0.183(3k)      .      
+    <1m           .         0.378(44k)   0.310(21k)   0.262(11k)    0.199(5k)    0.142(1k)      .      
+    none       0.485(19k)      .            .            .            .            .            .      
+    hist30              0          1-2          3-5         6-10        11-20        21-50          50+
+    0          0.251(42k)   0.203(26k)   0.141(11k)    0.099(6k)    0.092(3k)    0.089(1k)      .      
+    1          0.244(46k)   0.220(31k)   0.195(16k)    0.175(9k)    0.140(4k)    0.123(1k)      .      
+    10         0.589(12k)    0.593(6k)    0.642(0k)      .            .            .            .      
+    2          0.314(60k)   0.291(39k)   0.262(19k)    0.242(9k)    0.214(4k)    0.208(0k)      .      
+    3          0.384(57k)   0.364(37k)   0.336(17k)    0.312(8k)    0.307(3k)      .            .      
+    4          0.455(49k)   0.434(31k)   0.404(14k)    0.390(6k)    0.364(2k)      .            .      
+    5          0.520(53k)   0.499(32k)   0.489(12k)    0.458(4k)    0.421(1k)      .            .      
+    6          0.583(35k)   0.565(21k)    0.544(8k)    0.527(3k)    0.533(0k)      .            .      
+    7          0.639(19k)   0.626(11k)    0.623(4k)    0.626(1k)      .            .            .      
+    8           0.688(9k)    0.668(5k)    0.664(2k)    0.664(0k)      .            .            .      
+    9           0.730(1k)    0.717(0k)      .            .            .            .            .      
+    none       0.485(19k)      .            .            .            .            .            .      
+    sess_pos rate variance 0.00205 -> 0.00119 within gap  (42% absorbed)
+    sess_pos rate variance 0.00205 -> 0.00148 within hist10  (28% absorbed)
+    sess_pos rate variance 0.00205 -> 0.00082 within hist30  (60% absorbed)
+    sess_pos rate variance 0.00205 -> 0.00134 within hist_n  (35% absorbed)
+
+[3] between-user vs within-user, on the validation tab=1 rows:
+    feature     var(total)  var(within-u)  within share  users const
+    sess_pos      0.000199       0.000152          77%         66%
+    sess_hit      0.000066       0.000053          80%         85%
+    gap           0.000684       0.000507          74%         40%
+    hist10        0.013644       0.001830          13%         42%
+    hist30        0.017930       0.000827           5%         62%
+    prev1         0.006310       0.004247          67%         47%
+    hist_n        0.003159       0.000134           4%         90%
+    auth_hist     0.000059       0.000047          79%         96%
+    tag_hist      0.001763       0.001076          61%         38%
+    tab_n         0.002734       0.000120           4%         87%
+
+    within-user prior variance, and what survives regression on the rest:
+    sess_pos vs the champion's features : 1.521e-04 -> 8.193e-05 (54% novel, R^2 0.46)
+    tab_n    vs RICH (the winner, +0.0024): 1.201e-04 -> 1.037e-04 (86% novel, R^2 0.14)
+    novel within-user signal, loser / winner = 0.79x — same order, opposite outcome.
+
+    Reading: a 'novel within-user prior variance' screen would have rated sess_pos as promising as tab_n. It is falsified as a pre-run filter. A narrow field does not enter this model as a prior; it enters every interaction with the wide fields at rank min(k_j,k_l) (Run 32), and that cost is invisible to any marginal statistic.

@@ -1,0 +1,8 @@
+building rich features (continuous, as shipped) + tab history ...
+[SIGNIFICANT_BUT_NOT_BEST] R33c committee completion RICH + tab_n (5 seeds): valid 0.6192 (vs banked +0.0001 ✅ BETTER than banked) | test 0.6123 ± 0.0006 recorded | 296.6s)
+
+=== R33 COMMITTEE (RICH + tab_n, 5 seeds, z-scored mean) ===
+valid : GAUC 0.6948 | nDCG@5 0.5464 | primary 0.62059
+test  : GAUC 0.6857 | nDCG@5 0.5429 | primary 0.61429
+
+PRE-COMMITTED RULE SAYS PROMOTE: 0.62059 > 0.6200600000000001

@@ -1,0 +1,61 @@
+# Captured stdout of code/familiarity_diagnostics.py, campaign 6 iteration 2,
+# 31 Aug 2026. All rates estimated on TRAIN rows only; valid/test labels never
+# read. See the module docstring for what each block is and why block (3) --
+# within-user prior variance -- is printed for continuity but NOT used as a
+# screen (campaign 6 iteration 1 falsified that screen).
+
+building champion features + partition exposure counts ...
+train rows 1,141,112  valid rows 124,909
+
+--- the analyzer's slice on train rows: hist_n=31-100, 436,777 rows, 12,785 users, base rate 0.316 (all train rows 0.337)
+
+=== auth_n (prior impressions of this author by this user) ===
+  all train rows
+    auth_n        rate          n
+    0            0.343  1,070,326
+    1            0.247     63,290
+    2            0.267      5,516
+    3-5          0.199      1,775
+    6-10         0.118        161
+    11+          0.068         44
+  train rows inside hist_n=31-100
+    auth_n        rate          n
+    0            0.321    406,054
+    1            0.248     27,295
+    2            0.266      2,518
+    3-5          0.227        816
+    6-10         0.135         74
+    11+          0.100         20
+    auth_n conditioned on shipped auth_hist:
+      auth_hist           0           1           2         3-5        6-10         11+
+      0              0.343       0.198       0.234       0.151         nan         nan   (n=1,129,392)
+      1                nan       0.518       0.322       0.295         nan         nan   (n=11,339)
+    within-user share of induced prior variance on valid: 83%  (within-user variance 4.579e-04)
+
+=== tag_n (prior impressions of this tag by this user) ===
+  all train rows
+    tag_n         rate          n
+    0            0.342    306,076
+    1-3          0.342    359,028
+    4-10         0.352    270,715
+    11-30        0.317    167,394
+    31-100       0.225     37,089
+    100+         0.123        810
+  train rows inside hist_n=31-100
+    tag_n         rate          n
+    0            0.279     60,812
+    1-3          0.292    116,038
+    4-10         0.340    135,797
+    11-30        0.339    113,154
+    31-100       0.254     10,976
+    tag_n conditioned on shipped tag_hist:
+      tag_hist           0         1-3        4-10       11-30      31-100        100+
+      0              0.342       0.248       0.156       0.082       0.040         nan   (n=555,498)
+      1                nan       0.418       0.260       0.136       0.074         nan   (n=197,238)
+      2                nan       0.507       0.351       0.188       0.090         nan   (n=109,537)
+      3+               nan       0.586       0.491       0.370       0.242       0.125  (n=278,839)
+    within-user share of induced prior variance on valid: 60%  (within-user variance 5.702e-04)
+  reference tab_n      within-user share  21%  variance 3.728e-04
+  reference hist_n     within-user share   4%  variance 1.406e-04
+  reference auth_hist  within-user share  82%  variance 2.154e-04
+  reference tag_hist   within-user share  63%  variance 1.684e-03

@@ -1,0 +1,11 @@
+building rich features + tab_n + session structure ...
+train sess_pos distribution: {'0': 537635, '1-2': 339798, '3-5': 150316, '6-10': 71702, '11-20': 31541, '21-50': 9419, '50+': 701}
+[SIGNIFICANT_BUT_NOT_BEST] R38-ctrl RICH + tab_n (champion control): valid 0.6195 (vs banked -0.0010 ❌ not better) | test 0.6124 ± 0.0007 recorded | 174.9s)
+    tab=1 slice primary (valid, diagnostic): 0.59747
+[SIGNIFICANT_BUT_NOT_BEST] R38a + sess_pos: valid 0.6185 (vs banked -0.0021 ❌ not better) | test 0.6116 ± 0.0004 recorded | 170.8s)
+    tab=1 slice primary (valid, diagnostic): 0.59623
+[SIGNIFICANT_BUT_NOT_BEST] R38b + sess_pos + sess_hit: valid 0.6171 (vs banked -0.0035 ❌ not better) | test 0.6111 ± 0.0009 recorded | 160.1s)
+    tab=1 slice primary (valid, diagnostic): 0.59447
+
+control valid 0.61955; best challenger R38a + sess_pos 0.61850 (delta -0.00105, margin 0.001)
+NO WIN on validation: no falsification control needed, no committee run, nothing banked (pre-committed rule).

@@ -1,0 +1,6 @@
+building features + scrambled-surface tab_n ...
+[SIGNIFICANT_BUT_NOT_BEST] R37 RICH + surface-scrambled tab_n (mechanism control): valid 0.6185 (vs banked -0.0021 ❌ not better) | test 0.6113 ± 0.0011 recorded | 178.7s)
+
+reference gain (R33b - R33-ctrl): +0.00240
+scrambled arm vs control: +0.00134 (56% of the gain survives)
+VERDICT: survives. Counting structure, not surface identity, carries the gain; the mechanism story must be revised to position/frequency, and the docs updated accordingly.

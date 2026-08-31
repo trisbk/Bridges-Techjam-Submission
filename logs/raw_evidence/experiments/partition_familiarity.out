@@ -1,0 +1,12 @@
+building rich features + tab_n + partition exposure counts ...
+train tag_n distribution: {'1-3': 359028, '0': 306076, '4-10': 270715, '11-30': 167394, '31-100': 37089, '100+': 810}
+train auth_n distribution: {'0': 1070326, '1': 63290, '2': 5516, '3-5': 1775, '6-10': 161, '11+': 44}
+[SIGNIFICANT_BUT_NOT_BEST] R39-ctrl RICH + tab_n (champion control): valid 0.6195 (vs banked -0.0010 ❌ not better) | test 0.6124 ± 0.0007 recorded | 169.5s)
+    hist=31-100 slice primary (valid, diagnostic): 0.62227
+[SIGNIFICANT_BUT_NOT_BEST] R39a + tag_n: valid 0.6182 (vs banked -0.0024 ❌ not better) | test 0.6108 ± 0.0008 recorded | 183.3s)
+    hist=31-100 slice primary (valid, diagnostic): 0.62056
+[SIGNIFICANT_BUT_NOT_BEST] R39b + tag_n + auth_n: valid 0.6185 (vs banked -0.0021 ❌ not better) | test 0.6114 ± 0.0013 recorded | 193.3s)
+    hist=31-100 slice primary (valid, diagnostic): 0.62095
+
+control valid 0.61955; best challenger R39b + tag_n + auth_n 0.61846 (delta -0.00109, margin 0.001)
+NO WIN on validation: no falsification control needed, no committee run, nothing banked (pre-committed rule).

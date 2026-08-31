@@ -1,0 +1,27 @@
+train 1,141,112 rows | valid 124,909 rows, 22,377 users | valid rows in hist_n=31-100 63,777
+
+[1] within-user prior variance, and what survives regression on the champion's other fields (the instrument iteration 1 falsified as a screen):
+    tag_n   5.702e-04 -> 4.871e-04  (85% novel, R^2 0.15)   the loser,  -0.00133 (R39a)
+    auth_n  4.616e-04 -> 3.348e-04  (73% novel, R^2 0.27)   the R39b addition, +0.00024 vs R39a
+    tab_n   3.728e-04 -> 3.656e-04  (98% novel, R^2 0.02)   the winner, +0.0024 (R33b)
+
+    novel within-user signal, loser / winner = 1.33x
+    (iteration 1's loser sess_pos scored 0.79x on this same axis and also lost.)
+
+[2] the redundancy reading, tested: how much of tag_n's marginal rate variance the shipped outcome count absorbs (train rows):
+    tag_n rate variance 0.00057 -> 0.00685 within tag_hist  (-1108% absorbed)
+    tag_n rate variance 0.00057 -> 0.00063 within hist_n    (-11% absorbed)
+    tag_n rate variance 0.00057 -> 0.00067 within hist30    (-18% absorbed)
+    tag_n rate variance 0.00057 -> 0.00102 within tab_n     (-80% absorbed)
+    auth_n rate variance 0.00054 -> 0.00108 within auth_hist (-99% absorbed)
+    auth_n rate variance 0.00054 -> 0.00043 within hist_n    (21% absorbed)
+
+[3] support: a feature can only act where it varies. Share of train rows away from the zero bucket, and share of VALID users for whom the feature is constant across their own rows (a within-user metric cannot score a constant):
+    tag_n   non-zero on 73.2% of train rows | constant within 26.8% of valid users
+    auth_n  non-zero on  6.2% of train rows | constant within 75.0% of valid users
+    tab_n   non-zero on 94.4% of train rows | constant within 56.3% of valid users
+
+[4] the same three novelty numbers restricted to the slice that raised the hypothesis (hist_n=31-100 valid rows):
+    tag_n   3.090e-04 -> 2.802e-04 (91% novel)
+    auth_n  4.458e-04 -> 3.133e-04 (70% novel)
+    tab_n   1.283e-04 -> 1.223e-04 (95% novel)
