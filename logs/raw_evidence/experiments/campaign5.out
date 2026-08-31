@@ -1,0 +1,22 @@
+=== CAMPAIGN 5: completion run (promotion of the loop's discovery) ===
+
+iteration 1: R33c banking record already in LOG (idempotent rerun after the dur_bucket crash); not re-logging.
+banked best is now 0.62059
+
+building features for iterations 2-4 ...
+
+iteration 2: R34 recency on top of familiarity
+[SIGNIFICANT_BUT_NOT_BEST] R34 RICH + tab_n + tab recency: valid 0.6170 (vs banked -0.0036 ❌ not better) | test 0.6110 ± 0.0009 recorded | 154.4s)
+
+iteration 3: R35 duration-bucket familiarity (next residual slice, dur=9)
+[SIGNIFICANT_BUT_NOT_BEST] R35 RICH + tab_n + dur_n: valid 0.6189 (vs banked -0.0017 ❌ not better) | test 0.6111 ± 0.0006 recorded | 195.7s)
+
+iteration 4: R36 finer tab_n buckets
+[SIGNIFICANT_BUT_NOT_BEST] R36 RICH + tab_n_fine: valid 0.6199 (vs banked -0.0007 ❌ not better) | test 0.6116 ± 0.0003 recorded | 190.2s)
+
+=== CONVERGENCE CHECK (epsilon 0.002, N=3) ===
+  R34 RICH + tab_n + tab recency             valid 0.61704 (vs banked -0.00355)
+  R35 RICH + tab_n + dur_n                   valid 0.61889 (vs banked -0.00170)
+  R36 RICH + tab_n_fine                      valid 0.61989 (vs banked -0.00070)
+
+CONVERGED: 3 consecutive iterations without a validation improvement > 0.002. Checkpoint: R33c committee (valid 0.62059 / test 0.61429).

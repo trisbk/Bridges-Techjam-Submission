@@ -1,0 +1,11 @@
+loading + sequencing ...
+seed 0: single test 0.6115 (62s)
+seed 1: single test 0.6130 (58s)
+seed 2: single test 0.6127 (58s)
+seed 3: single test 0.6121 (65s)
+seed 4: single test 0.6120 (46s)
+
+=== FROZEN FINAL MODEL ===
+valid : GAUC 0.6948 | nDCG@5 0.5464 | primary 0.6206
+test  : GAUC 0.6857 | nDCG@5 0.5429 | primary 0.6143
+published baseline 0.5946 -> delta +0.0197
