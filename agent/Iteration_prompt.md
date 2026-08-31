@@ -24,95 +24,33 @@ Read:
 2. `logs/RESULTS.md` and `logs/LOG.jsonl` — previous experiments and results
 3. `code/harness.py` — the required experiment interface
 
-## Run one research iteration
+## The iteration
+1. **Observe.** Run `python3 ../agent/residual_analysis.py` from `code/`.
+   It slices the current champion's validation predictions, prints the
+   worst slices by expected value, and writes the top one into the belief
+   state as a structured hypothesis (with a mechanism tag).
+2. **Prioritize.** Run `python3 priority.py --recompute` then `python3
+   belief_state.py --next` from `agent/`. Take the hypothesis it returns —
+   not whatever seems interesting.
+3. **Implement** the experiment as a standalone script in `code/`
+   (pattern of the existing run scripts), and run it through
+   `harness.run_experiment()` (3 seeds, validation gating, intent-first
+   logging are enforced there). Record the result with
+   `belief_state.attach_evidence()`.
+4. **Falsify before you bank.** If the hypothesis carries a mechanism tag
+   and its result would be a win, synthesize the matching control with
+   `code/controls.py` (temporal -> time_shuffle placebo; capacity ->
+   matched-cardinality noise), run it, and record it with
+   `attach_control()`. Then — and only then — call `promote()`.
+   This is enforced: `promote()` raises ControlRequired if the control is
+   missing or failed. A failed control means your mechanism story is
+   wrong: call `refute(by_control=True)` and write down what the control
+   revealed — that is a finding, not a failure.
+5. **Update** `logs/RESULTS.md` (a short run section in the existing
+   style), the belief state (statuses), and — only on a validation-legit
+   promotion per PROMOTION_MARGIN — `BANKED_VALID` in `code/harness.py`.
+6. **Commit** everything with message prefix `agent:` and push.
 
-### 1. Observe
-
-From `code/`, run:
-
-`python3 ../agent/residual_analysis.py`
-
-This analyzes the current champion's validation errors and identifies where
-meaningful ranking headroom remains. The strongest candidate is written to the
-belief state as a structured hypothesis with a mechanism tag.
-
-### 2. Choose what to test
-
-From `agent/`, run:
-
-`python3 priority.py --recompute`
-
-then:
-
-`python3 belief_state.py --next`
-
-Test the hypothesis returned by the queue. Do not replace it with an idea that
-simply seems more interesting.
-
-### 3. Run the experiment
-
-Implement the hypothesis as a standalone script in `code/`, following the
-existing run scripts.
-
-Run every experiment through:
-
-`harness.run_experiment()`
-
-The harness handles multi-seed evaluation, validation gating, and intent-first
-logging.
-
-After the run, attach the result to the hypothesis with:
-
-`belief_state.attach_evidence()`
-
-### 4. Challenge a winning result
-
-A higher score is not enough if the hypothesis claims a mechanism.
-
-If a mechanism-tagged experiment appears to win, create the appropriate
-falsification control using `code/controls.py`.
-
-Examples:
-
-- temporal claim → shuffle the timing/alignment
-- capacity claim → use matched-cardinality random features
-
-Run the control and record it with:
-
-`attach_control()`
-
-Only call `promote()` if the improvement survives its control.
-
-This is enforced in code: `promote()` raises `ControlRequired` when the
-required control is missing or fails.
-
-If the control destroys the claimed mechanism, call:
-
-`refute(by_control=True)`
-
-Record what the control taught you. A refuted explanation is still a useful
-research result.
-
-### 5. Update the research record
-
-Update:
-
-- `logs/RESULTS.md` with a short summary of the run
-- the belief state with the final hypothesis status
-- `BANKED_VALID` in `code/harness.py` only if the experiment legitimately
-  clears the validation promotion margin
-
-### 6. Save the iteration
-
-Commit all changes using a message beginning with:
-
-`agent:`
-
-Then push the commit.
-
-Stop after this iteration.
-
----
 
 ## Rules to follow
 
