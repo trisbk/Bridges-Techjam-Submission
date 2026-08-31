@@ -114,7 +114,7 @@ Stop after this iteration.
 
 ---
 
-## Non-negotiable rules
+## Rules to follow
 
 - **Model selection uses validation only.** Test results may be recorded but
   must never determine promotion or rejection.
