@@ -2,7 +2,7 @@
 
 Statuses: OPEN untested · DEAD tested and rejected ·
 BANKED in the current best recipe. Every DEAD entry links the run that
-killed it in RESULTS.md; read the reason before proposing anything similar.
+killed it in RESULTS_CODE.md; read the reason before proposing anything similar.
 
 ## Banked recipe (test primary 0.5986)
 Listwise InfoNCE objective (K=4), mixed ensemble of 5× MLP (k=16, H=64,
