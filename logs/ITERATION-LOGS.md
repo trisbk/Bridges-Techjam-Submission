@@ -7,7 +7,7 @@ requirements. Three layers of record back it:
  appended before training. Results (per-seed scores, GAUC/nDCG
  components for later runs, result, wall time) after. A crashed run
  therefore still documents what it was attempting.
-- `RESULTS.md` . The narrative: full tables and mechanism analysis per run.
+- `RESULTS_CODE.md` . The narrative: full tables and mechanism analysis per run.
 - Git history . The code diff applied per iteration. Runs 30-32 were
  committed by the agent itself in this repo (hashes below). The manual-phase
  history lives in the research workspace repo
