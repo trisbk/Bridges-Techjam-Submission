@@ -16,7 +16,7 @@ from evaluate import evaluate
 from baseline import FM
 from pairwise import build_pair_index
 from listwise import sample_lists, infonce_step
-from tiktok.sequences import load_sequenced, encode_rows, BASE, SEQ, DATA
+from sequences import load_sequenced, encode_rows, BASE, SEQ, DATA
 
 OUT = './frozen_model'
 os.makedirs(OUT, exist_ok=True)
