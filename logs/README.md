@@ -1,7 +1,5 @@
 # Logs folder guide
 
-# Logs folder guide
-
 | File | What it is |
 |---|---|
 | ITERATION-LOGS.md | The compiled per-iteration index: hypothesis, code reference, metrics, verdict for every run, plus the strict-rule segmentation and compliance tables |
