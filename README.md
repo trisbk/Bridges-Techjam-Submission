@@ -329,11 +329,11 @@ Given more time, we would test richer models over ordered user histories, examin
 
 ### Steve Wilson Koesasih: Autonomous research system and experimentation
 
-Steve worked on the agent's research process, including how it proposes experiments, runs them, checks validation results, and decides whether a change should be kept. He also worked on connecting the research agent to the model-training pipeline, debugging experiments, and selecting the final validated model.
+Steve worked and reviewed on its research process: how it proposes experiments, checks validation results, and decides whether a change should be kept. He also worked on connecting the research agent to the model-training pipeline, debugging experiments and made the strategic calls recorded in the intervention log as well as selecting the final validated model.
 
 ### Farren Ananda Widjaja: Recommendation model and behavioral features
 
-Farren worked on the recommendation model and the signals that describe recent user behavior. His work included recent-interaction features, author and tag history, timing signals, feature experiments, and tests that measured how those additions changed recommendation performance.
+Farren's area was the recommendation model and the signals that describe recent user behavior. He followed and reviewed the experiments in this area, which covered recent-interaction features, author and tag history, and timing signals, and verified how those additions changed recommendation performance in the final results.
 
 ### Devin Nathaniel: Evaluation and scientific testing
 
