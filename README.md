@@ -296,10 +296,12 @@ Important files include:
 - `logs/ITERATION-LOGS.md`: per-iteration hypotheses, code references, metrics, verdicts, and convergence information.
 - `logs/INTERVENTIONS.md`: the manual-intervention record.
 - `logs/LOG.jsonl`: machine-readable experiment intents and results.
-- `logs/RESULTS.md`: the longer research record.
+- `logs/LOG-replay.jsonl`: validation-only reconstruction of the banking trajectory (see `code/replay_verdicts.py`).
+- `logs/RESULTS_CODE.md`: the longer research record for the main interactive campaign.
+- `logs/RESULTS_AGENT.md`: the clean-room campaign's own experiment log.
 - `logs/PROCESS-AUDIT.md`: documented review findings and corrections.
-- `logs/cleanroom/`: the zero-intervention clean-room campaign.
-- `logs/experiment_scripts/`: preserved experiment scripts.
+- `logs/raw_evidence/autonomy/cleanroom/`: the zero-intervention clean-room campaign.
+- `logs/raw_evidence/experiments/experiment_scripts/`: preserved experiment scripts.
 
 ## Computing cost
 
