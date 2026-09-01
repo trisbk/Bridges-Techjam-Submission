@@ -9,5 +9,5 @@
 | LOG.jsonl | Machine readable log. Intent records are written before training, results after |
 | LOG-replay.jsonl | Validation-only reconstruction of the banking trajectory (see `code/replay_verdicts.py`) as it independently reproduces the shipped champion using validation data alone |
 | IDEAS.md | The agent's idea backlog: banked, dead, and open, each with the run that decided it |
-| raw_evidence/ | Full transcripts, driver logs, diagnostics, and preserved historical experiment code, organized by campaign and topic — see `raw_evidence/README.md` for the detailed index |
+| raw_evidence/ | Full transcripts, driver logs, diagnostics, and preserved historical experiment code, organized by campaign and topic and see `raw_evidence/README.md` for the detailed index |
 | PROCESS-AUDIT.md | Findings and corrections from a pre-submission adversarial review, stated plainly |
