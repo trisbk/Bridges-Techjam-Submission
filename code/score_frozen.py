@@ -18,7 +18,7 @@ def _frozen_dir():
 
 from evaluate import evaluate
 from baseline import FM
-from tiktok.sequences import load_sequenced, encode_rows, BASE, SEQ, DATA
+from sequences import load_sequenced, encode_rows, BASE, SEQ, DATA
 
 print("rebuilding features (no training) ...")
 splits = load_sequenced()
