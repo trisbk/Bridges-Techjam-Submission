@@ -55,6 +55,7 @@ def load_logs():
     tab = np.array(tabs, dtype=np.int8); del tabs
     dur = np.array(durs, dtype=np.float32); del durs
 
+    # per-video author / tag as index arrays
     aidx, tgidx = {}, {}
     v_author = np.zeros(len(vindex), dtype=np.int32)
     v_tag = np.zeros(len(vindex), dtype=np.int32)
@@ -66,6 +67,7 @@ def load_logs():
     return user, vid, date, t, y, tab, dur, v_author, v_tag
 
 
+# ---------- featurization (one chronological pass, same definitions) ----------
 
 def featurize(user, vid, date, t, y, tab, dur, v_author, v_tag):
     t0 = time.time()
@@ -82,9 +84,13 @@ def featurize(user, vid, date, t, y, tab, dur, v_author, v_tag):
         return (0 if c == 0 else 1 if c <= 3 else 2 if c <= 10
                 else 3 if c <= 30 else 4 if c <= 100 else 5)
 
-    st = {}          
+    st = {}          # user -> mutable state
+    ua, ut, utab = {}, {}, {}     # (user,author)->pos count, (user,tag)->pos count, (user,tab)->count
+    for i in order:
+        u = int(user[i])
         s = st.get(u)
         if s is None:
+            # prev, deque10(list), n, deque30(list), last_date, last_t
             s = st[u] = [None, [], 0, [], None, None]
         yv = int(y[i])
         prev1[i] = 0 if s[0] is None else 1 + s[0]
@@ -109,7 +115,7 @@ def featurize(user, vid, date, t, y, tab, dur, v_author, v_tag):
         nb = utab.get(kb, 0)
         tab_n[i] = nbucket(nb)
         utab[kb] = nb + 1
-        
+        # update AFTER featurizing (own label never in own features)
         s[0] = yv
         d10.append(yv)
         if len(d10) > 10: d10.pop(0)
@@ -152,6 +158,8 @@ def encode(fields, cols, date, min_count=2):
     X = np.stack(Xcols, axis=1).astype(np.int32)
     return X, off, dims
 
+
+# ---------- sparse-update FM ----------
 
 class SparseFM:
     def __init__(self, dim, k=16, lr=0.001, l2=1e-6, seed=0):
@@ -229,6 +237,8 @@ class SparseFM:
                                for i in range(0, len(X), bs)])
 
 
+# ---------- list sampling (same as listwise.sample_lists, array version) ----------
+
 def build_user_pools(utr, ytr):
     pools = {}
     for i in range(len(utr)):
@@ -245,6 +255,9 @@ def sample_lists_np(pools, rng, K):
         P.append(pos)
         N.append(neg[rng.integers(0, len(neg), size=(len(pos), K))])
     return np.concatenate(P), np.concatenate(N, axis=0)
+
+
+# ---------- training loops ----------
 
 def train_eval(X, dim, y, user, date, mode, seed, k=16, lr=0.001,
                epochs=40, bs=8192, patience=4, K=4):
