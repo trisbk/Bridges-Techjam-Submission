@@ -57,7 +57,7 @@ the organizers' ruling, restarts are not interventions.
 ## Per-iteration index
 
 Phase 1 . Interactive research (agent-driven, human-strategic).
-Full detail per run in RESULTS.md. Code in `src/`. Workspace-repo commit
+Full detail per run in RESULTS_CODE.md. Code in `src/`. Workspace-repo commit
 in brackets.
 
 | Run | Hypothesis (short) | Code | test primary | Δ base | Result |
