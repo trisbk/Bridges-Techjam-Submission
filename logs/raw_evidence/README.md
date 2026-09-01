@@ -1,7 +1,7 @@
 # Raw Evidence
 
 This directory contains the original logs, transcripts, diagnostics, and
-experiment outputs supporting the summarized results in `../RESULTS.md`.
+experiment outputs supporting the summarized results in `../RESULTS_CODE.md` and `../RESULTS_AGENT.md`.
 
 These files are preserved for auditability and reproducibility; judges do not
 need to read them in order to understand the project.
